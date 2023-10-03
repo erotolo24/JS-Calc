@@ -30,10 +30,15 @@ function clearButPress(){
     document.getElementById('entry').value = '0'
 }
 
+// stores the current value to 'entry' in valMemStored
 function copyButPress(){
-
+    valMemStored = document.getElementById('entry').value
 }
 
+// if it has a value, paste it into entry and assign it as the new val
 function pasteButPress(){
-
+    if (valMemStored){
+        document.getElementById('entry').value = valMemStored
+        newVal = valMemStored
+    }
 }
