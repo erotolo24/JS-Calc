@@ -9,7 +9,27 @@ let decimalClicked = false
 let valMemStored = ''
 
 function numButPress(num){
-
+    // check if number has already been clicked
+    if(resultVal){
+        // start new number
+        newVal = num
+        // reset result to create new result
+        resultVal = ''
+    } else {
+        // used to block multiple decimals
+        if (num === '.'){
+            if (decimalClicked != true){
+                // takes current value of newVal and adds it to total
+                newVal += num
+                // sets it to true
+                decimalClicked = true
+            } 
+        } 
+        else {
+                newVal += num
+            }
+    }
+    document.getElementById('entry').value = newVal
 }
 
 function mathButPress(operator){
