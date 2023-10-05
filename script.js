@@ -33,11 +33,46 @@ function numButPress(num){
 }
 
 function mathButPress(operator){
-
+    // checks if previous calculation has value
+    // if not, makes preVal as new value
+    if(!resultVal){
+        prevVal = newVal
+    }
+    else {
+        // stores result as previous value
+        prevVal = resultVal
+    }
+    newVal = ''
+    decimalClicked = false
+    mathOperator = operator
+    document.getElementById('entry').value = ''
 }
 
 function equalButPress(){
+    decimalClicked = false
+    prevVal = parseFloat(prevVal)
+    newVal = parseFloat(newVal)
 
+    //perform calculations based in stored operator
+    switch(mathOperator){
+        case '+':
+            resultVal = prevVal + newVal
+            break
+        case '-':
+            resultVal = prevVal - newVal
+            break
+        case '*':
+            resultVal = prevVal * newVal
+            break
+        case '/':
+            resultVal = prevVal / newVal
+            break
+        // this is for if equals is hit without an operator
+        default:
+            resultVal = newVal
+    }
+    prevVal = newVal
+    document.getElementById('entry').value = resultVal
 }
 
 // clears all but memory
