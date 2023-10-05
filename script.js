@@ -45,6 +45,7 @@ function mathButPress(operator){
     newVal = ''
     decimalClicked = false
     mathOperator = operator
+    resultVal = ''
     document.getElementById('entry').value = ''
 }
 
